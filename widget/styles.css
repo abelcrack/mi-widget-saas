@@ -1,0 +1,19 @@
+.smartaddress-button {
+    margin-top: 8px;
+    padding: 10px 14px;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    background: #2563eb;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.smartaddress-button:hover {
+    opacity: 0.9;
+}
