@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const path = require('path');
 
 const app = express();
 
@@ -8,8 +7,7 @@ app.use(cors());
 app.use(express.json());
 
 // Servir archivos estáticos
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/widget', express.static(path.join(__dirname, 'widget')));
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
     res.send('🚀 SmartAddress API funcionando');

@@ -3,10 +3,9 @@
 
 <head>
     <meta charset="UTF-8">
-
     <title>Prueba SmartAddress</title>
 
-    <link rel="stylesheet" href="/widget/styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
@@ -25,7 +24,8 @@
     <br><br>
 
     <input
-        id="zip_code">
+        id="zip_code"
+        placeholder="Código Postal">
 
     <br><br>
 
@@ -34,20 +34,26 @@
 
     <br><br>
 
-    <button onclick="detectar()">Detectar e insertar</button>
+    <button onclick="detectar()">
+        Detectar e insertar
+    </button>
 
-    <script src="/widget/fuzzy.js"></script>
-    <script src="/widget/detector.js"></script>
-    <script src="/widget/inserter.js"></script>
-    <script src="/widget/autofill.js"></script>
+    <script src="/fuzzy.js"></script>
+    <script src="/detector.js"></script>
+    <script src="/inserter.js"></script>
+    <script src="/autofill.js"></script>
 
     <script>
         function detectar() {
             const resultado = SmartAddressDetector.detectarCampos();
+
             console.log(resultado);
 
             if (resultado.direccion) {
-                const btn = SmartAddressInserter.insertarBoton(resultado.direccion.element);
+
+                const btn = SmartAddressInserter.insertarBoton(
+                    resultado.direccion.element
+                );
 
                 if (btn) {
                     btn.addEventListener("click", () => {
@@ -56,10 +62,13 @@
                 }
 
                 alert("Botón insertado con autofill conectado");
+
             } else {
                 alert("No se encontró dirección");
             }
         }
     </script>
+
 </body>
+
 </html>
