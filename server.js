@@ -1,20 +1,19 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-// Servir archivos estáticos
-app.use(express.static('public'));
+// Archivos estáticos
+app.use(express.static(path.join(__dirname, 'public')));
 
+// Ruta principal
 app.get('/', (req, res) => {
-    res.send('🚀 SmartAddress API funcionando');
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-const PORT = process.env.PORT || 3000;
-
-app.listen(PORT, () => {
-    console.log(`🚀 Servidor iniciado en http://localhost:${PORT}`);
-});
+// Exportar la app para Vercel
+module.exports = app;
